@@ -1,0 +1,12 @@
+/.github export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/test export-ignore
+/project.godot export-ignore
+/default_env.tres export-ignore
+/.gutconfig.json export-ignore
+/README.md export-ignore
+/addons/gd-plug export-ignore
+/plug.gd export-ignore
+/LICENSE export-ignore
+/misc export-ignore
