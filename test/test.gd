@@ -5,7 +5,7 @@ const Pixelmatch := preload("res://addons/pixelmatch/pixelmatch.gd")
 const UPDATE = false
 const options = {threshold = 0.05}
 
-var equality_asserter: FuncRef  # Use different asset function depending on if we are using Gut or WAT.
+var equality_asserter: FuncRef  # Use different assert function depending on if we are using Gut or WAT.
 
 
 func test_diffs():
