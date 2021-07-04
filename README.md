@@ -1,6 +1,6 @@
 <img align="left" width="64" height="64" src="test/fixtures/icon_diff.pmtest.png">
 
-# godot-pixelmatch
+# Godot Pixelmatch
 
 ![Godot Version](https://img.shields.io/badge/godot-3.3+-blue.svg)
 
