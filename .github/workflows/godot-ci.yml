@@ -1,0 +1,14 @@
+name: godot-pixelmatch
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: barichello/godot-ci:3.3.2
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install addons
+      run: godot --no-window -s plug.gd install
+    - name: Run tests
+      run: godot -s addons/gut/gut_cmdln.gd -glog=2 -gexit

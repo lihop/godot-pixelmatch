@@ -1,6 +1,17 @@
+# We need to add some files in the .import directory for CI tests to work.
+# Otherwise they complain about images not having been loaded by opening
+# the editor at least once and fail.
+.import/*
+!.import/*.pmtest.png*
+
 *.log
 node_modules
 .DS_Store
 .nyc_output
 coverage
 tmp
+.venv
+.plugged/
+addons/gut
+addons/WAT
+test/results.xml
