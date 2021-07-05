@@ -1,6 +1,7 @@
 /.github export-ignore
 /.gitignore export-ignore
 /.gitattributes export-ignore
+/.import export-ignore
 /test export-ignore
 /project.godot export-ignore
 /default_env.tres export-ignore
