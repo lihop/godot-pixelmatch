@@ -60,7 +60,7 @@ func _pixelmatch(img1: Image, img2: Image, output: Image, width: int, height: in
 	var b8: PoolByteArray = img2.get_data()
 	var identical = true
 
-	assert(a8.size() == length, "Image data must contain of 4 bytes per pixel.")
+	assert(a8.size() == length, "Image data must consist of 4 bytes per pixel.")
 
 	for i in range(a8.size()):
 		if a8[i] != b8[i]:
