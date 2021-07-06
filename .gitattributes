@@ -11,3 +11,6 @@
 /plug.gd export-ignore
 /LICENSE export-ignore
 /misc export-ignore
+
+# GDScript linguist override
+*.gd linguist-language=GDScript
