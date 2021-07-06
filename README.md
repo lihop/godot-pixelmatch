@@ -86,7 +86,10 @@ See the [test.gd](/test/test.gd) file for more usage examples.
 
 ## Install
 
-Install with gd-plug:
+Install from the asset library:
+<https://godotengine.org/asset-library/asset/996>.
+
+Or install with [gd-plug](https://github.com/imjp94/gd-plug):
 
 ```gdscript
 # plug.gd
