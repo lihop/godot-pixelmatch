@@ -1,7 +1,8 @@
 # Copyright (c) 2019, Mapbox (ISC License).
 # Copyright (c) 2021, Leroy Hopson (MIT License).
+# Copyright (c) 2023, Tom Knight-Markiegi (MIT License).
 
-extends Reference
+extends RefCounted
 
 var threshold := 0.1  # matching threshold (0 to 1); smaller is more sensitive
 var include_aa := false  # whether to skip anti-aliasing detection
@@ -25,13 +26,11 @@ func diff(img1: Image, img2: Image, output: Image, width: int, height: int) -> i
 	for image in images:
 		formats.append(image.get_format())
 		image.convert(Image.FORMAT_RGBA8)
-		image.lock()
 
 	var diff = _pixelmatch(img1, img2, output, width, height)
 
 	for i in images.size():
 		var image: Image = images[i]
-		image.unlock()
 		image.convert(formats[i])
 
 	return diff
@@ -56,8 +55,8 @@ func _pixelmatch(img1: Image, img2: Image, output: Image, width: int, height: in
 
 	# check if images are identical
 	var length = width * height * 4
-	var a8: PoolByteArray = img1.get_data()
-	var b8: PoolByteArray = img2.get_data()
+	var a8: PackedByteArray = img1.get_data()
+	var b8: PackedByteArray = img2.get_data()
 	var identical = true
 
 	assert(a8.size() == length, "Image data must consist of 4 bytes per pixel.")
@@ -115,7 +114,7 @@ func _pixelmatch(img1: Image, img2: Image, output: Image, width: int, height: in
 
 
 func _is_pixel_data(arr):
-	return arr is PoolByteArray
+	return arr is PackedByteArray
 
 
 # check if a pixel is likely a part of anti-aliasing;
