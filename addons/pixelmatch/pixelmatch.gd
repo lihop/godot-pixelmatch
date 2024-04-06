@@ -1,7 +1,8 @@
 # Copyright (c) 2019, Mapbox (ISC License).
-# Copyright (c) 2021, Leroy Hopson (MIT License).
+# Copyright (c) 2021, 2024 Leroy Hopson (MIT License).
+# Copyright (c) 2023, Tom Knight-Markiegi (MIT License).
 
-extends Reference
+extends RefCounted
 
 var threshold := 0.1  # matching threshold (0 to 1); smaller is more sensitive
 var include_aa := false  # whether to skip anti-aliasing detection
@@ -25,13 +26,11 @@ func diff(img1: Image, img2: Image, output: Image, width: int, height: int) -> i
 	for image in images:
 		formats.append(image.get_format())
 		image.convert(Image.FORMAT_RGBA8)
-		image.lock()
 
 	var diff = _pixelmatch(img1, img2, output, width, height)
 
 	for i in images.size():
 		var image: Image = images[i]
-		image.unlock()
 		image.convert(formats[i])
 
 	return diff
@@ -44,20 +43,27 @@ func _i2v(index: int) -> Vector2:
 
 
 func _pixelmatch(img1: Image, img2: Image, output: Image, width: int, height: int) -> int:
-	if img1.get_size() != img2.get_size() or (output and output.get_size() != img1.get_size()):
-		push_error("Image sizes do not match.")
+	var img1_size = img1.get_size()
+	var img2_size = img2.get_size()
+
+	if img1_size != img2_size:
+		push_error("Image sizes do not match: %s, %s" % [img1_size, img2_size])
 		return -1
 
-	assert(img1.get_size().x == width)
-	assert(img1.get_size().y == height)
+	if output and (not output.is_empty()) and output.get_size() != img1.get_size():
+		push_error("Output image size does not match: %s, %s" % [img1_size, output.get_size()])
+		return -1
+
+	assert(img1_size.x == width)
+	assert(img1_size.y == height)
 
 	# set width for use by _i2v()
 	_width = width
 
 	# check if images are identical
 	var length = width * height * 4
-	var a8: PoolByteArray = img1.get_data()
-	var b8: PoolByteArray = img2.get_data()
+	var a8: PackedByteArray = img1.get_data()
+	var b8: PackedByteArray = img2.get_data()
 	var identical = true
 
 	assert(a8.size() == length, "Image data must consist of 4 bytes per pixel.")
@@ -115,7 +121,7 @@ func _pixelmatch(img1: Image, img2: Image, output: Image, width: int, height: in
 
 
 func _is_pixel_data(arr):
-	return arr is PoolByteArray
+	return arr is PackedByteArray
 
 
 # check if a pixel is likely a part of anti-aliasing;

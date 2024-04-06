@@ -1,8 +1,6 @@
 {
-  "dirs": [
-    "res://"
-  ],
+  "dirs": ["res://test"],
   "prefix": "",
-  "suffix": ".gut.gd",
+  "suffix": "test.gd",
   "include_subdirs": true
 }

@@ -10,8 +10,9 @@ node_modules
 .nyc_output
 coverage
 tmp
+.env
+.godot/
 .venv
 .plugged/
 addons/gut
-addons/WAT
 test/results.xml

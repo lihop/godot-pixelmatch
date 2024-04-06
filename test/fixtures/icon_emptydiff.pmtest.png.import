@@ -1,34 +1,14 @@
 [remap]
 
-importer="texture"
-type="StreamTexture"
-path="res://.import/icon_emptydiff.pmtest.png-c137e8323a07fd8c501bd7a2417b1aed.stex"
-metadata={
-"vram_texture": false
-}
+importer="image"
+type="Image"
+uid="uid://ci3yajnnnfg33"
+path="res://.godot/imported/icon_emptydiff.pmtest.png-c137e8323a07fd8c501bd7a2417b1aed.image"
 
 [deps]
 
 source_file="res://test/fixtures/icon_emptydiff.pmtest.png"
-dest_files=[ "res://.import/icon_emptydiff.pmtest.png-c137e8323a07fd8c501bd7a2417b1aed.stex" ]
+dest_files=["res://.godot/imported/icon_emptydiff.pmtest.png-c137e8323a07fd8c501bd7a2417b1aed.image"]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
