@@ -2,7 +2,7 @@
 
 # Godot Pixelmatch
 
-![Godot Version](https://img.shields.io/badge/godot-3.3+-blue.svg)
+![Godot Version](https://img.shields.io/badge/godot-4.2+-blue.svg)
 
 GDScript port of [pixelmatch](https://github.com/mapbox/pixelmatch) the smallest, simplest and fastest JavaScript pixel-level image comparison library,
 originally created to compare screenshots in tests.
@@ -31,12 +31,12 @@ Implements ideas from the following papers:
 
 ## Example output
 
-| expected | actual | diff |
-| --- | --- | --- |
+| expected                           | actual                                 | diff                                         |
+| ---------------------------------- | -------------------------------------- | -------------------------------------------- |
 | ![](test/fixtures/icon.pmtest.png) | ![](test/fixtures/icon_alt.pmtest.png) | ![1diff](test/fixtures/icon_diff.pmtest.png) |
-| ![](test/fixtures/4a.pmtest.png) | ![](test/fixtures/4b.pmtest.png) | ![1diff](test/fixtures/4diff.pmtest.png) |
-| ![](test/fixtures/3a.pmtest.png) | ![](test/fixtures/3b.pmtest.png) | ![1diff](test/fixtures/3diff.pmtest.png) |
-| ![](test/fixtures/6a.pmtest.png) | ![](test/fixtures/6b.pmtest.png) | ![1diff](test/fixtures/6diff.pmtest.png) |
+| ![](test/fixtures/4a.pmtest.png)   | ![](test/fixtures/4b.pmtest.png)       | ![1diff](test/fixtures/4diff.pmtest.png)     |
+| ![](test/fixtures/3a.pmtest.png)   | ![](test/fixtures/3b.pmtest.png)       | ![1diff](test/fixtures/3diff.pmtest.png)     |
+| ![](test/fixtures/6a.pmtest.png)   | ![](test/fixtures/6b.pmtest.png)       | ![1diff](test/fixtures/6diff.pmtest.png)     |
 
 ## API
 
@@ -72,8 +72,7 @@ func _ready():
 	var width: int = img1.get_width()
 	var height: int = img2.get_height()
 
-	var diff := Image.new()
-	diff.create(width, height, false, Image.FORMAT_RGBA8)
+	var diff = Image.create(width, height, false, Image.FORMAT_RGBA8)
 
 	var matcher = Pixelmatch.new()
 	matcher.threshold = 0.1
@@ -101,10 +100,9 @@ func _plugging():
 godot --no-window -s plug.gd install
 ```
 
-
 ## Testing
 
-If you want to run the tests locally you will need to install the WAT and/or Gut addons.
+If you want to run the tests locally you will need to install the Gut addon.
 This can be done through the asset-lib or by using gd-plug.
 
 ```bash

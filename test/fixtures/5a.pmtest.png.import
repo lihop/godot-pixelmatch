@@ -1,34 +1,14 @@
 [remap]
 
-importer="texture"
-type="StreamTexture"
-path="res://.import/5a.pmtest.png-942af6c935b54910ae6eada2a544c87f.stex"
-metadata={
-"vram_texture": false
-}
+importer="image"
+type="Image"
+uid="uid://c668hteyoidi3"
+path="res://.godot/imported/5a.pmtest.png-942af6c935b54910ae6eada2a544c87f.image"
 
 [deps]
 
 source_file="res://test/fixtures/5a.pmtest.png"
-dest_files=[ "res://.import/5a.pmtest.png-942af6c935b54910ae6eada2a544c87f.stex" ]
+dest_files=["res://.godot/imported/5a.pmtest.png-942af6c935b54910ae6eada2a544c87f.image"]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0

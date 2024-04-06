@@ -1,34 +1,14 @@
 [remap]
 
-importer="texture"
-type="StreamTexture"
-path="res://.import/3diff.pmtest.png-e84c101f50b311c2e98637eafeb7654e.stex"
-metadata={
-"vram_texture": false
-}
+importer="image"
+type="Image"
+uid="uid://dhdyaqi5lxs5b"
+path="res://.godot/imported/3diff.pmtest.png-e84c101f50b311c2e98637eafeb7654e.image"
 
 [deps]
 
 source_file="res://test/fixtures/3diff.pmtest.png"
-dest_files=[ "res://.import/3diff.pmtest.png-e84c101f50b311c2e98637eafeb7654e.stex" ]
+dest_files=["res://.godot/imported/3diff.pmtest.png-e84c101f50b311c2e98637eafeb7654e.image"]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0

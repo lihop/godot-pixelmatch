@@ -1,5 +1,5 @@
 # Copyright (c) 2019, Mapbox (ISC License).
-# Copyright (c) 2021, Leroy Hopson (MIT License).
+# Copyright (c) 2021, 2024 Leroy Hopson (MIT License).
 # Copyright (c) 2023, Tom Knight-Markiegi (MIT License).
 
 extends RefCounted
@@ -43,12 +43,19 @@ func _i2v(index: int) -> Vector2:
 
 
 func _pixelmatch(img1: Image, img2: Image, output: Image, width: int, height: int) -> int:
-	if img1.get_size() != img2.get_size() or (output and output.get_size() != img1.get_size()):
-		push_error("Image sizes do not match.")
+	var img1_size = img1.get_size()
+	var img2_size = img2.get_size()
+
+	if img1_size != img2_size:
+		push_error("Image sizes do not match: %s, %s" % [img1_size, img2_size])
 		return -1
 
-	assert(img1.get_size().x == width)
-	assert(img1.get_size().y == height)
+	if output and (not output.is_empty()) and output.get_size() != img1.get_size():
+		push_error("Output image size does not match: %s, %s" % [img1_size, output.get_size()])
+		return -1
+
+	assert(img1_size.x == width)
+	assert(img1_size.y == height)
 
 	# set width for use by _i2v()
 	_width = width
