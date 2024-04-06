@@ -93,7 +93,7 @@ Or install with [gd-plug](https://github.com/imjp94/gd-plug):
 ```gdscript
 # plug.gd
 func _plugging():
-	plug("lihop/godot-pixelmatch")
+       plug("lihop/godot-pixelmatch", {tag = "v2.0.0", include = ["addons/pixelmatch"]})
 ```
 
 ```bash
